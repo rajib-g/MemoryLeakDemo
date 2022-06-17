@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body style="width: 100vw; height: 100vh;">
+    <div id="a"></div>
+    <button onclick="add()">Add</button>
+    <button onclick="remove()">Remove</button>
+</body>
+<script>
+    function add() {
+        let body = document.getElementById('a');
+        let rand = Math.floor(Math.random() * 1000);
+        // body.innerHTML = `<iframe src="http://localhost/app5/#/?_dc=${rand}" title="Miscellaneous Entry Form" id="miscEntFrm" style="width:100%; height:99%; border:none;"></iframe>`;
+        // body.innerHTML = `<iframe src="http://localhost/app1/#/misc?userId=125334675" title="Miscellaneous Entry Form" id="miscEntFrm" style="width:100%; height:99%; border:none;"></iframe>`;
+        body.innerHTML = `<iframe src="http://localhost:4200" title="Memory Leak Demo" id="miscEntFrm" style="width:100%; height:99%; border:none;"></iframe>`;
+    }
+    function remove() {
+        document.getElementById('miscEntFrm').contentWindow.postMessage("close", "*");
+
+        setTimeout(() => {
+            let frame = document.getElementById('miscEntFrm');
+            //frame.contentWindow.location.reload();
+            frame.src = 'about:blank';
+            frame.remove();
+            frame = undefined;
+        }, 1000);
+    }
+</script>
+</html>
