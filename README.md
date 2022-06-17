@@ -5,7 +5,7 @@ Memory leak demo.
 I have created a basic Angular application using ng new command. Then I only modify the app.component.ts file. The same is written below:
 by implementing OnDestroy 
 
-`import { Component, HostListener, OnDestroy } from '@angular/core';
+``import { Component, HostListener, OnDestroy } from '@angular/core';
 import { platformBrowser } from '@angular/platform-browser';
 
 @Component({
@@ -29,13 +29,13 @@ export class AppComponent implements OnDestroy {
   }
   title = 'demo';
 }
-`
+``
 
 
 I have made a index.html file which is being served by IIS. On pressing add the angular application is being loaded inside an iframe and on pressing remove button the application is being destroyed and iframe is removed from DOM. 
 
 The content of index.html file which is being served by IIS is written below:
-`<!DOCTYPE html>
+``<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -65,7 +65,7 @@ The content of index.html file which is being served by IIS is written below:
         }, 1000);
     }
 </script>
-</html>`
+</html>``
 
 But the thing is, when observing memory tab performance monitor I notice that heap memory is constantly increasing when adding and removing the angular application along with iframe. Along with heap memory there is also an increase in DOM nodes, document and event listeners which decrease to some extinct but equals the previous number.
 
