@@ -3,7 +3,6 @@ Memory leak demo.
 
 
 I have created a basic Angular application using ng new command. Then I only modify the app.component.ts file. The same is written below:
-by implementing OnDestroy 
 
 I have uploaded the same in this repo.
 
